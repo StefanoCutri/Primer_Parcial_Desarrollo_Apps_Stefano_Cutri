@@ -21,6 +21,18 @@ import coil.compose.AsyncImage
 import edu.uade.primerparcial.model.Pokemon
 import edu.uade.primerparcial.logic.PokemonViewModel
 
+/**
+ * Pantalla principal de la Pokédex.
+ *
+ * Esta capa solo se encarga de dibujar lo que el ViewModel le da.
+ * No calcula nada, no accede a datos directamente.
+ * Observa el StateFlow del ViewModel con collectAsState() y
+ * Compose recompone la pantalla automáticamente cuando la lista cambia.
+ *
+ * Se usa LazyColumn para renderizar solo los ítems visibles en pantalla,
+ * lo que hace la lista eficiente sin importar cuántos pokémon haya.
+ */
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PokemonListScreen(
@@ -58,6 +70,13 @@ fun PokemonListScreen(
         }
     }
 }
+/**
+ * Ítem individual de la lista.
+ *
+ * Recibe un pokémon ya listo y lo muestra.
+ * No sabe de dónde vino el dato ni cómo se calculó el sprite.
+ * Usa Coil (AsyncImage) para cargar la imagen desde la URL de forma asíncrona.
+ */
 
 @Composable
 fun PokemonItem(pokemon: Pokemon) {

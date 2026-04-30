@@ -7,6 +7,18 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
+/**
+ * ViewModel de la pantalla principal.
+ *
+ * Actúa como intermediario entre los datos y la UI.
+ * Guarda el estado de la lista y se lo expone a la pantalla
+ * a través de un StateFlow, que Compose puede observar
+ * y recomponer automáticamente cuando cambia.
+ *
+ * La UI nunca habla directamente con el repositorio,
+ * siempre pasa por acá.
+ */
+
 class PokemonViewModel(
     private val repository: PokemonRepository = PokemonRepository()
 ) : ViewModel() {

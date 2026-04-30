@@ -1,6 +1,18 @@
 package edu.uade.primerparcial.data
 import edu.uade.primerparcial.model.Pokemon
 
+/**
+ * Repositorio de pokémon.
+ *
+ * Es la única capa que sabe de dónde vienen los datos.
+ * El ViewModel le pide la lista y este archivo se la devuelve,
+ * sin que el resto de la app sepa ni le importe cómo se obtienen.
+ *
+ * Hoy los datos son una lista hardcodeada. Si en el futuro
+ * se quisiera reemplazar por una llamada a una API real o una base de datos,
+ * solo habría que modificar este archivo.
+ */
+
 class PokemonRepository {
     fun getPokemons(): List<Pokemon> = listOf(
         Pokemon(name = "bulbasaur",     url = "https://pokeapi.co/api/v2/pokemon/1/"),
